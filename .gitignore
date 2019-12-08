@@ -1,0 +1,43 @@
+#Executables
+*.out
+checker*
+push_swap*
+
+#Libraries
+/libft/libft.a
+libftprintf.a
+*libft.a
+
+#Folders
+/references
+/coldstorage
+/samples/
+/rebuild
+/includes/*
+/test*
+*dSYM/
+libft/.gitignore
+/misc_files
+/print
+
+#dot files
+._*
+
+#Object Files
+*.o
+/objects
+
+#Misc files
+debug_*
+*.pdf
+tests.c
+.DS_Store
+*.py
+*.swp
+*.swo
+*.txt
+*.sh
+.nfs*
+*.gch
+pft/
+*main.c
