@@ -2,6 +2,7 @@
 *.out
 checker*
 push_swap*
+move*
 
 #Libraries
 /libft/libft.a
