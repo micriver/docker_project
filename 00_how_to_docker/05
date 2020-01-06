@@ -1,0 +1,5 @@
+# Launch the hello-world container, and make sure that it prints its welcome message,
+
+docker run hello-world
+
+# Use "docker container ls -a" to verify the container has been "left"
