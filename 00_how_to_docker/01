@@ -2,8 +2,7 @@
 # the two minimum requirements for creating a docker machine are; 
 # passing the driver and also the name of the docker machine that we wish to create:
 
-docker-machine create -d virtualbox Char
-
+docker-machine create -d virtualbox Char2
 
 # docker-machine create     -d virtualbox           Char
 # |       command     |    |flag + driver|  | name of machine |
