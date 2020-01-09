@@ -1,0 +1,7 @@
+# Launch an nginx container, available on Docker Hub,
+# as a background task. -d flag
+# name it overlord --name flag
+# make sure it can restart on its own --restart always
+# attach its 80 port to the 5000 port of Char
+
+docker run --restart always --name overlord -P -d 
