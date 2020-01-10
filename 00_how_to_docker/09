@@ -1,17 +1,5 @@
-# pull debian container 
-docker pull debian
-
-# run the debian container in the background
-docker run -t -d --name my_debian debian
-# (-t) Allocate a pseudo-TTY
-# (-d) run in detached mode, keep the container running in the background until stopped
-
-# open the shell
-docker exec -it my_debian /bin/bash
-
-# inside the debian shell
 # update the package manager and all its already installed contents
 sudo apt-get update && sudo apt-get upgrade -y
 
-# install clang compiler for c language
-sudo apt-get install build-essentials clang git -y
+# install gcc compiler for c language
+sudo apt-get install build-essentials gcc git -y

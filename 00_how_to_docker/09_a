@@ -1,0 +1,10 @@
+# pull debian container 
+docker pull debian
+
+# run the debian container in the background
+docker run -t -d --name my_debian debian
+# (-t) Allocate a pseudo-TTY
+# (-d) run in detached mode, keep the container running in the background until stopped
+
+# open the shell
+docker exec -it my_debian /bin/bash
