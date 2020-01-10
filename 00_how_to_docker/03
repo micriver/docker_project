@@ -1,7 +1,6 @@
-# Set environment variables to dictate that docker should run a command against a particular machine.
-
 eval $(docker-machine env Char)
 
+# Set environment variables to dictate that docker should run a command against a particular machine.
 # The eval command is used to execute the arguments as a shell command on unix or linux system.
 # Eval command comes in handy when you have a unix or linux command stored in a variable and you want to execute that command stored in the string.
 # The eval command first evaluates the argument and then runs the command stored in the argument.
