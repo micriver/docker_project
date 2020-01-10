@@ -11,7 +11,7 @@ docker exec -it my_debian /bin/bash
 
 # inside the debian shell
 # update the package manager and all its already installed contents
-sudo apt-get update
+sudo apt-get update && sudo apt-get upgrade -y
 
 # install clang compiler for c language
-sudo apt-get install clang
+sudo apt-get install build-essentials clang git -y
