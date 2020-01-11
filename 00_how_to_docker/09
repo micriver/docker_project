@@ -1,5 +1,5 @@
 # update the package manager and all its already installed contents
-sudo apt-get update && sudo apt-get upgrade -y
+apt-get update && apt-get upgrade -y
 
 # install gcc compiler for c language
-sudo apt-get install build-essentials gcc git -y
+apt-get install build-essential gcc git -y

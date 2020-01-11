@@ -1,0 +1,6 @@
+docker pull mysql
+docker run --name spawning-pool -d --restart always -v hatchery:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=Kerrigan -e MYSQL_DATABASE=zerglings mysql
+
+# with -e, you can set environmental variables
+# mysql at the end, is the repo
+# "docker exec -it spawning-pool bash" to log into the shell
