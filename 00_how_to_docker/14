@@ -1,5 +1,4 @@
 docker pull wordpress
-docker run --name lair -e WORDPRESS_DB_HOST=spawning-pool:3306 -e WORDPRESS_DB_USER=root -e WORDPRESS_DB_PASSWORD=Kerrigan -e WORDPRESS_DB_NAME=zerglings --net=mysqlnet -p 8080:80 -d wordpress:latest
+docker run --name lair -e DATA_PATH=/var/lib/mysql --net=mysqlnet -p 8080:80 -d wordpress
 
-# pulled from working stackoverflow working script:
-# docker run --name test-wordpress -e WORDPRESS_DB_HOST=test-mysql:3306 -e WORDPRESS_DB_USER=wordpress -e WORDPRESS_DB_PASSWORD=wordpress -e WORDPRESS_DB_NAME=wordpress --net=mysqlnet -p 8081:80 -d wordpress:latest
+# the lone environmental variable sets the wordpress container to use the mysql database path on the hatchery

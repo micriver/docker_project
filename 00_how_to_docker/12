@@ -1,8 +1,5 @@
 docker pull mysql
-docker run --name spawning-pool --restart always -e MYSQL_USER=root -e MYSQL_PASSWORD=Kerrigan -e MYSQL_DATABASE=zerglings -v hatchery:/var/lib/mysql --net=mysqlnet -d mysql
-
-# pulled from working stackoverflow working script:
-# docker run --name test-mysql -e MYSQL_ROOT_PASSWORD=somewordpress -e MYSQL_DATABASE=wordpress -e MYSQL_USER=wordpress -e MYSQL_PASSWORD=wordpress -v db_data:/var/lib/mysql --net=mysqlnet -d mysql:5.7
+docker run --name spawning-pool --restart always -e MYSQL_DATABASE=zerglings -e MYSQL_ROOT_PASSWORD=Kerrigan -v hatchery:/var/lib/mysql --net=mysqlnet -d mysql --default-authentication-plugin=mysql_native_password
 
 # with -e, you can set environmental variables
 # mysql at the end, is the repo
