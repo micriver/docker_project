@@ -1,0 +1,2 @@
+docker pull phpmyadmin/phpmyadmin
+docker run --name roach-warden -d --net=mysqlnet -p 8081:80 phpmyadmin/phpmyadmin
