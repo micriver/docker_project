@@ -1,0 +1,32 @@
+docker pull python
+docker run -it --rm --name Abathur -v /HOME:/root -p 3000:3000 python:2-slim -d python
+
+# open the container's shell
+docker exec -it Abathur /bin/bash 
+
+# install vim
+apt-get update
+apt-get install vim
+
+# install the virtual environment
+pip install virtualenv
+
+# Create an environment in python2
+python2 -m virtualenv venv
+
+# Activate the environment
+. venv/bin/activate
+
+# install flask
+pip install Flask
+
+# create the flask file hello.py
+
+# run the flask file
+flask run --host=0.0.0.0 -p 3000
+
+# When you want to display the html file from the templates folder in your root directory, you have to add /html, like this:  http://<docker-machine ip>:3000/html
+# that will render the templates from the templates folder, make sure the name of the html file is the same as the file being pointed to by the render method
+
+# --host=0.0.0.0 make the server publicly available, tells your operating system to listen on all public IPs
+# -p binds the port to 3000 per the pdf
