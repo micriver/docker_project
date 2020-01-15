@@ -1,0 +1,14 @@
+# Turn Aiur into a slave of the local swarm in which Char is leader (the command to take control of Aiur is not requested).
+docker-machine ip Char
+docker-machine ssh Char
+
+# generate join-token within manager of swarm
+docker swarm join-token worker
+
+# open another terminal tab, make it active
+docker-machine ssh Aiur
+# paste join command from manager
+# docker swarm join --token <hash>
+
+# go back to Char and verify that Aiur has joined the swarm
+docker node ls

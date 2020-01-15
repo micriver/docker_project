@@ -1,0 +1,20 @@
+# Create a local swarm, the Char virtual machine should be its manager
+
+# Create two worker machines
+docker-machine create -d virtualbox worker1
+docker-machine create -d virtualbox worker2
+
+# connect to the machines in your swarm via ssh
+docker-machine ip Char
+docker-machine ssh Char
+
+# once inside the machine, use this command to designate a manager
+docker swarm init --advertise-addr # 192.168.99.117 # you must use the ip address of the machine that you want to be the manager
+
+# inside the manager machine, run this command to get a token to add to the swarm
+# docker swarm join-token worker
+# copy the token and ssh into the newly created worker machine(s) you've designated to join the swarm
+# EG: docker swarm join --token SWMTKN-1-1tgio2fmvtotcb602dlezufgrzr5mjbc1bzt4u4sw4tlz6qy90-bdhn9r1cg6hl2weuhp33buqqz 192.168.99.117:2377
+
+# Use this command inside your manager machine to verify your swarm where leader is the manager
+docker node ls
