@@ -29,6 +29,8 @@ libft/.gitignore
 /objects
 
 #Misc files
+__pycache__/
+venv/
 debug_*
 *.pdf
 tests.c
