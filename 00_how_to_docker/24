@@ -1,0 +1,11 @@
+# docker service create \ # command to create the docker service
+# --network overmind \ # specify a network for the service to run on 
+# --name orbital-command \ # specify the service name
+# --env RABBITMQ_DEFAULT_USER=user \ # specify a password for rabbitmq
+# --env RABBITMQ_DEFAULT_PASS=pass \ # specify a username for rabbitmq
+# rabbitmq # the service you want to use
+
+# This command must be launched within the MANAGER of the swarm (ssh into it)
+docker service create --network overmind --name orbital-command --env RABBITMQ_DEFAULT_USER=user --env RABBITMQ_DEFAULT_PASS=pass rabbitmq
+
+# <docker service ps orbital-command> and <docker service logs orbital-command> to verify that its working

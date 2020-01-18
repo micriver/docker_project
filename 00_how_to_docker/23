@@ -1,2 +1,5 @@
 # Create an overlay-type internal network that you will name overmind
-docker network create -d overlay overmind
+docker network create --internal -d overlay overmind
+
+# -d flag is the driver string flag that designates a name for the network besides the default
+# verify its internal using <docker network inspect overmind>
