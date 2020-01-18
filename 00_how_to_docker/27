@@ -1,0 +1,5 @@
+# Get the real-time logs of one the tasks of the engineering-bay service
+docker service logs -f $(docker service ps -q engineering-bay | head -n 1) 
+
+# the command in parenthesis will output one column of one of the tasks 
+# and then be fed into the docker service command with the -f flag for real-time task listing
