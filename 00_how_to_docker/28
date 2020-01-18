@@ -1,6 +1,5 @@
 # Launch a 42school/marine-squad in two replicas and make sure it works properly
 # This service will be named marines and will be on the overmind network
 
-docker-machine ssh Char
 docker pull 42school/marine-squad
 docker service create --name marines --replicas 2 --network overmind --env OC_USERNAME=user --env OC_PASSWD=pass 42school/marine-squad
