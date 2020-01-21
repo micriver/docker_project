@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian
 
 # variable needed to make sure server can start
 ENV TS3SERVER_LICENSE=accept
@@ -14,7 +14,7 @@ RUN apt-get install wget bzip2 -y
 # download server
 RUN wget https://files.teamspeak-services.com/releases/server/3.11.0/teamspeak3-server_linux_amd64-3.11.0.tar.bz2
 
-# decompress server
+# decompress server download
 RUN tar xfvj teamspeak3-server_linux_amd64-3.11.0.tar.bz2
 
 # remove compressed file
