@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Dockerfile                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mirivera <mirivera@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/01/24 10:32:11 by mirivera          #+#    #+#              #
+#    Updated: 2020/01/24 10:32:14 by mirivera         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 FROM ft-rails:on-build
 # This line is referencing the parent docker image created by the parent dockerfile
 

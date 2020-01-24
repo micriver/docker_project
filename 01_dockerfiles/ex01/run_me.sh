@@ -14,7 +14,6 @@ cd ~/Desktop
 wget https://files.teamspeak-services.com/releases/client/3.3.0/TeamSpeak3-Client-macosx-3.3.0.dmg
 open TeamSpeak3-Client-macosx-3.3.0.dmg
 read -p "Press enter after you've agreed to the license and the dmg window has opened."
-# sleep 10
 cd /Volumes/TeamSpeak\ 3\ Client
 cp -R TeamSpeak\ 3\ Client.app ~/Desktop
 cd ~/Desktop
