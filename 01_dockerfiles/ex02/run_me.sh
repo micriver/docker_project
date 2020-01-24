@@ -7,10 +7,13 @@ green=`tput setaf 2`
 yellow=`tput setaf 3`
 blue=`tput setaf 4`
 
+# build base image
 docker build -t ft-rails:on-build -f parent/Dockerfile .
+# build child
 docker build -t rubyserver .
-echo "${red}Copy paste the ip of the running docker virtual machine into the address bar of your browser:${mint}"
-docker-machine ip Char
+# run the container
 docker run -itd --name ruby_container --rm -p 3000:3000 rubyserver
-
-# TO TEST : visit http://[machine ip]:3000
+# wait for the container to load up
+sleep 2
+# go to the url using the ip of your docker machine
+open http://$(docker-machine ip Char):3000
