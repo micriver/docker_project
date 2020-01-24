@@ -1,4 +1,5 @@
 FROM debian
+LABEL maintainer="mirivera@student.42.us.org"
 
 # variable needed to make sure server can start
 ENV TS3SERVER_LICENSE=accept
