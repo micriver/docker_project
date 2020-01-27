@@ -6,7 +6,7 @@
 #    By: mirivera <mirivera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/24 10:35:03 by mirivera          #+#    #+#              #
-#    Updated: 2020/01/25 18:50:28 by mirivera         ###   ########.fr        #
+#    Updated: 2020/01/27 14:24:33 by mirivera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,5 +20,13 @@
 
 FROM debian
 
-# update, upgrade and install dependencies for gitlab onto debian
-RUN apt-get update && apt-get -y upgrade && apt-get -y install wget ca-certificates openssh-server tzdata apt-utils
+# update, upgrade and install dependencies for gitlab onto debian, postfix is to send notification messages, # tzdata apt-utils
+RUN apt-get update && \
+    apt-get -y upgrade && \
+    apt-get install -y curl openssh-server ca-certificates postfix
+
+# Add the Gitlab package repository, install the package, pipe script into bash command that runs it
+RUN cd && \
+    curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
+# run the installer
+RUN sudo apt install -y gitlab-ce
