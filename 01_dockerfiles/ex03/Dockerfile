@@ -6,7 +6,7 @@
 #    By: mirivera <mirivera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/24 10:35:03 by mirivera          #+#    #+#              #
-#    Updated: 2020/01/27 14:24:33 by mirivera         ###   ########.fr        #
+#    Updated: 2020/01/30 11:32:15 by mirivera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,20 @@ FROM debian
 # update, upgrade and install dependencies for gitlab onto debian, postfix is to send notification messages, # tzdata apt-utils
 RUN apt-get update && \
     apt-get -y upgrade && \
-    apt-get install -y curl openssh-server ca-certificates postfix
+    apt-get install -y curl openssh-server ca-certificates postfix git
 
 # Add the Gitlab package repository, install the package, pipe script into bash command that runs it
 RUN cd && \
     curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
 # run the installer
 RUN sudo apt install -y gitlab-ce
+
+# 443 is the standard port for HTTPS traffic, 80 is for HTTP, and 22 is the default port for SSH traffic
+EXPOSE 443 80 22
+
+# The package is expecting an init system to start our runit service
+ENTRYPOINT (/opt/gitlab/embedded/bin/runsvdir-start &) && \
+    #configure Gitlab client
+    gitlab-ctl reconfigure && \
+    # tail all logs 
+    tail -f /dev/null 
