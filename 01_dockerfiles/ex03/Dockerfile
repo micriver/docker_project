@@ -6,24 +6,26 @@
 #    By: mirivera <mirivera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/24 10:35:03 by mirivera          #+#    #+#              #
-#    Updated: 2020/01/30 11:32:15 by mirivera         ###   ########.fr        #
+#    Updated: 2020/01/30 18:55:46 by mirivera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# ctrl k then "OK"
-# [ ] installs development version of Gitlab - Community Edition with all dependencies and necessary configurations
-# [ ] launches the application as everything is building
-# [ ] access the web client
-# [ ] create users
-# [ ] interact via GIT with this container (HTTPS and SSH)
-    # this is kind of easier than it looks because you only need to create repos that have HTTPS in the URL and then push using an SSH key, so generate one
+# ctrl k then "OK" for heavy checkmark :)
+# [✓] installs development version of Gitlab - Community Edition with all dependencies and necessary configurations
+# [✓] launches the application as everything is building
+# [✓] access the web client
+# [✓] create users
+# [✓] interact via GIT with this container 
 
 FROM debian
 
-# update, upgrade and install dependencies for gitlab onto debian, postfix is to send notification messages, # tzdata apt-utils
+# update, upgrade and install dependencies for gitlab onto debian, postfix is to send notification messages, # tzdata postfix 
+# apt-utils is used for gitlab-ce package configuration
 RUN apt-get update && \
     apt-get -y upgrade && \
-    apt-get install -y curl openssh-server ca-certificates postfix git
+    apt-get install -y curl openssh-server ca-certificates apt-utils 
+
+RUN apt-get update && apt-get install sudo -y
 
 # Add the Gitlab package repository, install the package, pipe script into bash command that runs it
 RUN cd && \
@@ -38,5 +40,13 @@ EXPOSE 443 80 22
 ENTRYPOINT (/opt/gitlab/embedded/bin/runsvdir-start &) && \
     #configure Gitlab client
     gitlab-ctl reconfigure && \
-    # tail all logs 
-    tail -f /dev/null 
+    # tail creates a loop that keeps the container running, printing out the logs
+    gitlab-ctl tail
+
+# This build takes about 10 minutes to boot up
+
+# You can even change this after you have created the machine
+# 	>	docker-machine stop machine_name
+# 	>	VBoxManage modifyvm machine_name --cpus 2
+# 	>	VBoxManage modifyvm machine_name --memory 4096
+# 	>	docker-machine start machine_name
