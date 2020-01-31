@@ -3,3 +3,7 @@
 
 docker pull 42school/marine-squad
 docker service create --name marines --replicas 2 --network overmind --env OC_USERNAME=user --env OC_PASSWD=pass 42school/marine-squad
+
+# to verify
+docker service ls
+docker service logs -f $(docker service ps -q marines | head -n 1) 
