@@ -1,1 +1,2 @@
+# Print the environment variables of the spawning-pool container in one command
 docker exec spawning-pool env

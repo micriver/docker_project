@@ -1,32 +1,11 @@
-docker pull python
-docker run -it --rm --name Abathur -v /HOME:/root -p 3000:3000 python:2-slim -d python
+# run and create Abathur container with the python slim version
+docker run -dit --name Abathur -v ~/:/root -p 3000:3000 python:2-slim
 
-# open the container's shell
-docker exec -it Abathur /bin/bash 
+# execute the install flask command inside the container from outside
+docker exec Abathur pip install Flask
 
-# install vim
-apt-get update
-apt-get install vim
+# create the hello.py file using the "sh" (shell) command and "-c" to add the echo argument that redirects it's output in the hello.py file!
+docker exec Abathur sh -c "echo 'from flask import Flask\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef hello():\n    return \"<h1>Hello, World!</h1>\"' > hello.py"
 
-# install the virtual environment
-pip install virtualenv
-
-# Create an environment in python2
-python2 -m virtualenv venv
-
-# Activate the environment
-. venv/bin/activate
-
-# install flask
-pip install Flask
-
-# create the flask file hello.py
-
-# run the flask file
-flask run --host=0.0.0.0 -p 3000
-
-# When you want to display the html file from the templates folder in your root directory, you have to add /html, like this:  http://<docker-machine ip>:3000/html
-# that will render the templates from the templates folder, make sure the name of the html file is the same as the file being pointed to by the render method
-
-# --host=0.0.0.0 make the server publicly available, tells your operating system to listen on all public IPs
-# -p binds the port to 3000 per the pdf
+# from outside the running container set the FLASK_APP environmental variable and then run it with the flask run command on the designated port
+docker exec Abathur env FLASK_APP=hello.py flask run --host=0.0.0.0 --port 3000

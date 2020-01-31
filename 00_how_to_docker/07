@@ -1,3 +1,4 @@
 docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' overlord
 
 # Get the internal IP address of the overlord container without starting its shell and in one command.
+# Resource: https://stackoverflow.com/questions/17157721/how-to-get-a-docker-containers-ip-address-from-the-host

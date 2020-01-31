@@ -1,6 +1,11 @@
+docker network create mysqlnet
+docker network ls
 docker pull mysql
 docker run --name spawning-pool --restart always -e MYSQL_USER=user -e MYSQL_DATABASE=zerglings -e MYSQL_ROOT_PASSWORD=Kerrigan -v hatchery:/var/lib/mysql --net=mysqlnet -d mysql --default-authentication-plugin=mysql_native_password
 
+# log into the shell
+docker exec -it spawning-pool bash
+
+# run "mysql --password=Kerrigan"
+
 # with -e, you can set environmental variables
-# mysql at the end, is the repo
-# "docker exec -it spawning-pool bash" to log into the shell

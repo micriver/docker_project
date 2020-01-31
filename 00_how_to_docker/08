@@ -1,7 +1,7 @@
 # pull alpine container from dockerhub
 docker pull alpine
 
-# run the alpine container's lightweight shell
+# run the alpine container's lightweight shell (ash)
 docker run -it --rm alpine /bin/ash
 
 # The (-it) option instructs Docker to allocate a pseudo-TTY connected to the container’s stdin; 
