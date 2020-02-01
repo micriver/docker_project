@@ -1,7 +1,7 @@
 <p align="center">
   <div align="center">
    <img src="assets/docker_logo.png" width="500px"</img><br>
-    <em><i>Spinning up containers...</i></em>
+	<em><i>Spinning up containers...</i></em>
   </div>
 </p>
 
@@ -9,41 +9,39 @@
 
 The goal for this group project is to familiarize yourself with Docker containers, Dockerfiles and Docker swarm:
 
-I'm enjoyed working on this project because I was able to explore concepts that interested me during my research. The majority of my time was spent googling although
-I also managed to practice working with bash scripts in the process, which I very much enjoyed.
+I enjoyed working on this project because I was able to explore concepts that interested me during my research. The majority of my time was spent googling for the required commands and dealing with various errors that were popping up.
+
+During this time, I tried to work with bash scripts as well, which I very much enjoyed.
 
 **Project Document:**
 [Docker-1.pdf](assets/docker.en.pdf)
 
-All functions were written according to 42's coding standard,
-[the Norm](https://github.com/micriver/docker-project/assets/docker.en%20.pdf).
-
-
 ## Installation
 
-Download the repository by copying and pasting the commands below.
+Verify that the following commands work correctly:
 
-```bash
-git clone https://github.com/micriver/Fillit.git
-cd Fillit
-```
+```docker version```
+```VirtualBoxVM --help```
 
-You can compile the ```./fillit``` executable using the Makefile:
+You should see the current Docker Engine version and other information. If not, run:
 
-Command       |  Action
-:-------------|:-------------
-`make`        | Compile the executable.
-`make clean`  | Remove object files.
-`make fclean` | Remove object files and the executable.
-`make re`     | Re-compile the executable.
+```brew update && brew install docker && brew cask install virtualbox```
 
 ## Usage
 
-After compilation, you can run the ```./fillit``` executable with one of the valid input files from ```samples/valid_samples/```.
+Download the repository with the following commands:
+
+```bash
+git clone https://github.com/micriver/docker_project.git
+cd docker_project/00_how_to_docker
+```
+
+Once inside, cat each command and observe the output. 
+
+The first command will spin up a Docker Virtual Machine using VirtualBox:
 
 <p align="center">
   <div align="center">
-   <img src="assets/sample_fillit_output.png" width="800px"</img><br>
+   <img src="assets/start_docker_machine.png" width="800px"</img><br>
   </div>
 </p>
-
