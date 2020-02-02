@@ -21,6 +21,7 @@ During this time, I tried to work with bash scripts as well, which I very much e
 Verify that the following commands work correctly:
 
 ```docker version```
+<br>
 ```VirtualBoxVM --help```
 
 You should see the current Docker Engine version and other information. If not, run:
