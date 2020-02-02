@@ -7,11 +7,11 @@
 
 # Docker-1
 
-The goal for this group project is to familiarize yourself with Docker containers, Dockerfiles and Docker swarm:
+The goal for this group project is to familiarize yourself with Docker containers, Dockerfiles and Docker swarm services.
 
-I enjoyed working on this project because I was able to explore concepts that interested me during my research. The majority of my time was spent googling for the required commands and dealing with various errors that were popping up.
+I enjoyed working on this project because I was able to explore concepts that interested me during my research. The majority of my time was spent googling for the required commands and dealing with various errors.
 
-During this time, I tried to work with bash scripts as well, which I very much enjoyed.
+During this time, I tried to work with bash scripts, which I very much enjoyed.
 
 **Project Document:**
 [Docker-1.pdf](assets/docker.en.pdf)
