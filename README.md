@@ -42,6 +42,6 @@ The first command will spin up a Docker Virtual Machine using VirtualBox:
 
 <p align="center">
   <div align="center">
-   <img src="assets/start_docker_machine.png" width="800px"</img><br>
+   <img src="assets/start_docker_machine2.png" width="800px"</img><br>
   </div>
 </p>
